@@ -5,8 +5,8 @@ A full monitoring stack built on AWS EC2 using Prometheus and Grafana.
 ## Stack
 - Prometheus — metrics collection
 - Grafana — visualization
-- Node Exporter — host metrics (Day 2)
-- Alertmanager — alerting (Day 3)
+- Node Exporter — host metrics
+- Alertmanager — alerting
 
 ## Quick Start
 ```bash
