@@ -1,0 +1,740 @@
+{
+  "annotations": [
+    {
+      "kind": "AnnotationQuery",
+      "spec": {
+        "builtIn": true,
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "query": {
+          "datasource": {
+            "name": "-- Grafana --"
+          },
+          "group": "grafana",
+          "kind": "DataQuery",
+          "spec": {},
+          "version": "v0"
+        }
+      }
+    }
+  ],
+  "cursorSync": "Off",
+  "editable": true,
+  "elements": {
+    "panel-1": {
+      "kind": "Panel",
+      "spec": {
+        "data": {
+          "kind": "QueryGroup",
+          "spec": {
+            "queries": [
+              {
+                "kind": "PanelQuery",
+                "spec": {
+                  "hidden": false,
+                  "query": {
+                    "datasource": {
+                      "name": "PBFA97CFB590B2093"
+                    },
+                    "group": "prometheus",
+                    "kind": "DataQuery",
+                    "spec": {
+                      "editorMode": "code",
+                      "expr": "100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\", instance=\"instance-2\"}[5m])) * 100)",
+                      "legendFormat": "__auto",
+                      "range": true
+                    },
+                    "version": "v0"
+                  },
+                  "refId": "A"
+                }
+              }
+            ],
+            "queryOptions": {},
+            "transformations": []
+          }
+        },
+        "description": "",
+        "id": 1,
+        "links": [],
+        "title": "CPU Usage",
+        "vizConfig": {
+          "group": "timeseries",
+          "kind": "VizConfig",
+          "spec": {
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisBorderShow": false,
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "barWidthFactor": 0.6,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "insertNulls": false,
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "showValues": false,
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": 0
+                    },
+                    {
+                      "color": "green",
+                      "value": 0
+                    },
+                    {
+                      "color": "orange",
+                      "value": 75
+                    },
+                    {
+                      "color": "red",
+                      "value": 90
+                    }
+                  ]
+                },
+                "unit": "percent"
+              },
+              "overrides": []
+            },
+            "options": {
+              "annotations": {
+                "clustering": -1,
+                "multiLane": false
+              },
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "hideZeros": false,
+                "mode": "single",
+                "sort": "none"
+              }
+            }
+          },
+          "version": "13.0.1"
+        }
+      }
+    },
+    "panel-2": {
+      "kind": "Panel",
+      "spec": {
+        "data": {
+          "kind": "QueryGroup",
+          "spec": {
+            "queries": [
+              {
+                "kind": "PanelQuery",
+                "spec": {
+                  "hidden": false,
+                  "query": {
+                    "datasource": {
+                      "name": "PBFA97CFB590B2093"
+                    },
+                    "group": "prometheus",
+                    "kind": "DataQuery",
+                    "spec": {
+                      "editorMode": "code",
+                      "expr": "(1 - (node_memory_MemAvailable_bytes{instance=\"instance-2\"} / node_memory_MemTotal_bytes{instance=\"instance-2\"})) * 100",
+                      "legendFormat": "__auto",
+                      "range": true
+                    },
+                    "version": "v0"
+                  },
+                  "refId": "A"
+                }
+              }
+            ],
+            "queryOptions": {},
+            "transformations": []
+          }
+        },
+        "description": "",
+        "id": 2,
+        "links": [],
+        "title": "Memory Usage",
+        "vizConfig": {
+          "group": "timeseries",
+          "kind": "VizConfig",
+          "spec": {
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisBorderShow": false,
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "barWidthFactor": 0.6,
+                  "drawStyle": "line",
+                  "fillOpacity": 25,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "insertNulls": false,
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "showValues": false,
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": 0
+                    },
+                    {
+                      "color": "green",
+                      "value": 0
+                    },
+                    {
+                      "color": "orange",
+                      "value": 75
+                    },
+                    {
+                      "color": "red",
+                      "value": 90
+                    }
+                  ]
+                },
+                "unit": "percent"
+              },
+              "overrides": []
+            },
+            "options": {
+              "annotations": {
+                "clustering": -1,
+                "multiLane": false
+              },
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "hideZeros": false,
+                "mode": "single",
+                "sort": "none"
+              }
+            }
+          },
+          "version": "13.0.1"
+        }
+      }
+    },
+    "panel-3": {
+      "kind": "Panel",
+      "spec": {
+        "data": {
+          "kind": "QueryGroup",
+          "spec": {
+            "queries": [
+              {
+                "kind": "PanelQuery",
+                "spec": {
+                  "hidden": false,
+                  "query": {
+                    "datasource": {
+                      "name": "PBFA97CFB590B2093"
+                    },
+                    "group": "prometheus",
+                    "kind": "DataQuery",
+                    "spec": {
+                      "editorMode": "code",
+                      "expr": "100 - ((node_filesystem_avail_bytes{instance=\"instance-2\", mountpoint=\"/\", fstype!=\"tmpfs\"} / node_filesystem_size_bytes{instance=\"instance-2\", mountpoint=\"/\", fstype!=\"tmpfs\"}) * 100)",
+                      "legendFormat": "__auto",
+                      "range": true
+                    },
+                    "version": "v0"
+                  },
+                  "refId": "A"
+                }
+              }
+            ],
+            "queryOptions": {},
+            "transformations": []
+          }
+        },
+        "description": "",
+        "id": 3,
+        "links": [],
+        "title": "Disk Usage",
+        "vizConfig": {
+          "group": "timeseries",
+          "kind": "VizConfig",
+          "spec": {
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisBorderShow": false,
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "barWidthFactor": 0.6,
+                  "drawStyle": "line",
+                  "fillOpacity": 25,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "insertNulls": false,
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "showValues": false,
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": 0
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                },
+                "unit": "percent"
+              },
+              "overrides": []
+            },
+            "options": {
+              "annotations": {
+                "clustering": -1,
+                "multiLane": false
+              },
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "hideZeros": false,
+                "mode": "single",
+                "sort": "none"
+              }
+            }
+          },
+          "version": "13.0.1"
+        }
+      }
+    },
+    "panel-4": {
+      "kind": "Panel",
+      "spec": {
+        "data": {
+          "kind": "QueryGroup",
+          "spec": {
+            "queries": [
+              {
+                "kind": "PanelQuery",
+                "spec": {
+                  "hidden": false,
+                  "query": {
+                    "datasource": {
+                      "name": "PBFA97CFB590B2093"
+                    },
+                    "group": "prometheus",
+                    "kind": "DataQuery",
+                    "spec": {
+                      "editorMode": "code",
+                      "exemplar": false,
+                      "expr": "rate(node_network_receive_bytes_total{instance=\"instance-2\", device=\"ens5\"}[5m])",
+                      "interval": "",
+                      "legendFormat": "{Network In}",
+                      "range": true
+                    },
+                    "version": "v0"
+                  },
+                  "refId": "A"
+                }
+              },
+              {
+                "kind": "PanelQuery",
+                "spec": {
+                  "hidden": false,
+                  "query": {
+                    "datasource": {
+                      "name": "PBFA97CFB590B2093"
+                    },
+                    "group": "prometheus",
+                    "kind": "DataQuery",
+                    "spec": {
+                      "editorMode": "code",
+                      "expr": "rate(node_network_transmit_bytes_total{instance=\"instance-2\", device=\"ens5\"}[5m])",
+                      "instant": false,
+                      "legendFormat": "{Network Out}",
+                      "range": true
+                    },
+                    "version": "v0"
+                  },
+                  "refId": "B"
+                }
+              }
+            ],
+            "queryOptions": {},
+            "transformations": []
+          }
+        },
+        "description": "",
+        "id": 4,
+        "links": [],
+        "title": "Network Traffic",
+        "vizConfig": {
+          "group": "timeseries",
+          "kind": "VizConfig",
+          "spec": {
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisBorderShow": false,
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "barWidthFactor": 0.6,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "insertNulls": false,
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "showValues": false,
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": 0
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                },
+                "unit": "decbytes"
+              },
+              "overrides": []
+            },
+            "options": {
+              "annotations": {
+                "clustering": -1,
+                "multiLane": false
+              },
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "hideZeros": false,
+                "mode": "single",
+                "sort": "none"
+              }
+            }
+          },
+          "version": "13.0.1"
+        }
+      }
+    },
+    "panel-5": {
+      "kind": "Panel",
+      "spec": {
+        "data": {
+          "kind": "QueryGroup",
+          "spec": {
+            "queries": [
+              {
+                "kind": "PanelQuery",
+                "spec": {
+                  "hidden": false,
+                  "query": {
+                    "datasource": {
+                      "name": "PBFA97CFB590B2093"
+                    },
+                    "group": "prometheus",
+                    "kind": "DataQuery",
+                    "spec": {
+                      "editorMode": "code",
+                      "expr": "node_memory_MemAvailable_bytes{instance=\"instance-2\"} / 1024 / 1024",
+                      "legendFormat": "__auto",
+                      "range": true
+                    },
+                    "version": "v0"
+                  },
+                  "refId": "A"
+                }
+              }
+            ],
+            "queryOptions": {},
+            "transformations": []
+          }
+        },
+        "description": "",
+        "id": 5,
+        "links": [],
+        "title": "Memory Available",
+        "vizConfig": {
+          "group": "stat",
+          "kind": "VizConfig",
+          "spec": {
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "thresholds"
+                },
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": 0
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                },
+                "unit": "decmbytes"
+              },
+              "overrides": []
+            },
+            "options": {
+              "colorMode": "value",
+              "graphMode": "area",
+              "justifyMode": "auto",
+              "orientation": "auto",
+              "percentChangeColorMode": "standard",
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "showPercentChange": false,
+              "textMode": "auto",
+              "wideLayout": true
+            }
+          },
+          "version": "13.0.1"
+        }
+      }
+    }
+  },
+  "layout": {
+    "kind": "GridLayout",
+    "spec": {
+      "items": [
+        {
+          "kind": "GridLayoutItem",
+          "spec": {
+            "element": {
+              "kind": "ElementReference",
+              "name": "panel-1"
+            },
+            "height": 8,
+            "width": 12,
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "kind": "GridLayoutItem",
+          "spec": {
+            "element": {
+              "kind": "ElementReference",
+              "name": "panel-2"
+            },
+            "height": 8,
+            "width": 12,
+            "x": 12,
+            "y": 0
+          }
+        },
+        {
+          "kind": "GridLayoutItem",
+          "spec": {
+            "element": {
+              "kind": "ElementReference",
+              "name": "panel-3"
+            },
+            "height": 8,
+            "width": 12,
+            "x": 0,
+            "y": 8
+          }
+        },
+        {
+          "kind": "GridLayoutItem",
+          "spec": {
+            "element": {
+              "kind": "ElementReference",
+              "name": "panel-4"
+            },
+            "height": 8,
+            "width": 12,
+            "x": 12,
+            "y": 8
+          }
+        },
+        {
+          "kind": "GridLayoutItem",
+          "spec": {
+            "element": {
+              "kind": "ElementReference",
+              "name": "panel-5"
+            },
+            "height": 5,
+            "width": 24,
+            "x": 0,
+            "y": 16
+          }
+        }
+      ]
+    }
+  },
+  "links": [],
+  "liveNow": false,
+  "preferences": {
+    "layout": {
+      "kind": "GridLayout",
+      "spec": {
+        "items": []
+      }
+    }
+  },
+  "preload": false,
+  "tags": [],
+  "timeSettings": {
+    "autoRefresh": "",
+    "autoRefreshIntervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "fiscalYearStartMonth": 0,
+    "from": "now-1h",
+    "hideTimepicker": false,
+    "timezone": "browser",
+    "to": "now"
+  },
+  "title": "Instance 2 Metrics",
+  "variables": []
+}
