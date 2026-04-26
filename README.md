@@ -23,5 +23,5 @@ docker compose up -d
 
 ## Dashboards
 - Prometheus Self Monitoring
-- System Metrics — Node Exporter (Day 2)
+- System Metrics — Node Exporter
 
