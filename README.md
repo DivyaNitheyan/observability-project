@@ -1,12 +1,18 @@
+
 # Observability Stack — Prometheus + Grafana
 
-A full monitoring stack built on AWS EC2 using Prometheus and Grafana.
+Monitoring stack deployed on AWS EC2 with real-time alerting.
 
-## Stack
-- Prometheus — metrics collection
-- Grafana — visualization
-- Node Exporter — host metrics
-- Alertmanager — alerting
+## Tools
+- **Prometheus** — metrics collection
+- **Grafana** — dashboards and visualization  
+- **Alertmanager** — alerts to Slack
+- **Node Exporter** — host metrics (CPU, memory, disk, network)
+- **Flask App** — custom instrumented application
+
+## Architecture
+- Instance 1 → Prometheus + Grafana + Alertmanager
+- Instance 2 → Node Exporter + Flask App
 
 ## Quick Start
 ```bash
@@ -20,8 +26,15 @@ docker compose up -d
 |---------|-----|
 | Prometheus | http://localhost:9090 |
 | Grafana | http://localhost:3000 |
+| Alertmanager | http://localhost:9093 |
 
 ## Dashboards
+- System Metrics — CPU, Memory, Disk, Network
+- Flask App — RED Method (Rate, Errors, Duration)
 - Prometheus Self Monitoring
-- System Metrics — Node Exporter
 
+## Alerts
+- Instance Down → Slack notification
+- High CPU > 80%
+- High Memory > 85%
+- High Disk > 80%

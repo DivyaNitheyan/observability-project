@@ -22,3 +22,9 @@ scrape_configs:
         labels:
           instance: "instance-2"
           env: "production"
+  - job_name: "flask_app"
+    static_configs:
+      - targets: ["172.31.14.47:5000"]
+        labels:
+          instance: "flask-app"
+          env: "production"
